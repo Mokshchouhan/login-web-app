@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script>
+        function togglePassword() {
+            let pass = document.getElementById("password");
+            pass.type = pass.type === "password" ? "text" : "password";
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Welcome Back</h2>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class="message {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+
+    <form method="POST">
+
+        <div class="input-group">
+            <input type="text" name="username" required>
+            <label>Username</label>
+            <i class="fa fa-user"></i>
+        </div>
+
+        <div class="input-group">
+            <input type="password" id="password" name="password" required>
+            <label>Password</label>
+            <i class="fa fa-lock"></i>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" onclick="togglePassword()"> Show Password
+        </div>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+    <p>Don't have an account? <a href="/register">Register</a></p>
+</div>
+
+</body>
+</html>

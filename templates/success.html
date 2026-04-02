@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            overflow: hidden;
+            font-family: Arial;
+            color: white;
+        }
+
+        .box {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Spinner */
+        .loader {
+            border: 6px solid rgba(255,255,255,0.3);
+            border-top: 6px solid white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            margin: auto;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Checkmark */
+        .check {
+            font-size: 60px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+
+    <script>
+        function showSuccess() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("check").style.display = "block";
+        }
+
+        // Show checkmark after 2 sec
+        setTimeout(showSuccess, 2000);
+
+        // Redirect after 4 sec
+        setTimeout(function() {
+            window.location.href = "{{ redirect_url }}";
+        }, 4000);
+    </script>
+
+</head>
+<body>
+
+<div class="box">
+    <div id="loader" class="loader"></div>
+
+    <div id="check" class="check">✅</div>
+
+    <h2>{{ message }}</h2>
+</div>
+
+</body>
+</html>
