@@ -15,15 +15,12 @@ pip install flask
 python app.py
 
 login-web-app/
-│
 ├── app.py
 ├── users.txt
 ├── .gitignore
 ├── README.md
-│
 ├── static/
 │   └── style.css
-│
 └── templates/
     ├── login.html
     ├── register.html
