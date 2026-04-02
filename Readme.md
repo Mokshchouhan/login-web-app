@@ -15,13 +15,13 @@ pip install flask
 python app.py
 
 login-web-app/
-├── app.py
-├── users.txt
-├── .gitignore
-├── README.md
+├── app.py # Main Flask application
+├── users.txt # User data storage
+├── .gitignore # Files to ignore in Git
+├── README.md # Project documentation
 ├── static/
-│   └── style.css
+│ └── style.css # CSS for styling pages
 └── templates/
-    ├── login.html
-    ├── register.html
-    └── success.html
+├── login.html # Login page
+├── register.html # Registration page
+└── success.html # Success animation page
